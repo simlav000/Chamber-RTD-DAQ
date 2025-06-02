@@ -64,7 +64,15 @@ Optional command-line flags:
 
 ---
 
-### 4. `client.py` – The TCP Tester
+### 4. `rtd.vi` - The LabVIEW counterpart
+
+This script receives the stream of data on port `5050` and displays the temperature readings on 
+a plot in real-time. This program can be executed on its own, and it will call `rtd.py` which
+opens the TCP server for it to connect to automatically. Similarly, closing the VI causes the 
+`rtd.py` server to shutdown. The user is prompted with the `--log` and `--db` options when 
+running this VI.
+
+### 5. `client.py` – The TCP Tester
 
 This script helps test `rtd.py`’s TCP server.
 
@@ -74,4 +82,4 @@ Steps:
 2. Run `client.py` in another
 3. Watch temperature data and debug messages stream in
 
-> ⚠️ Note: `rtd.py` is designed to **exit if a client disconnects**, a workaround for safe shutdown within LabVIEW.
+> ⚠️ Note: As mentioned, `rtd.py` is designed to **exit if a client disconnects**, a workaround for safe shutdown within LabVIEW.
